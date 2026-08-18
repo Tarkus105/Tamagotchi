@@ -8,3 +8,6 @@
 ## Arquitectura
 - Base de datos en servidor para guardar y recuperar estado del Tamagotchi [Ver detalles](database.md)
 - Autenticación de usuarios para que cada uno recupere su Tamagotchi
+
+## Gestión de versiones
+- Crear rama de desarrollo
