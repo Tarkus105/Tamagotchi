@@ -18,6 +18,12 @@ public class UserInterface {
 
 
         while (true) {
+
+            System.out.println("Elige una opción del menú: ");
+            System.out.println("1 - Ver estado");
+            System.out.println("2 - Alimentar");
+            System.out.println("X - Salir");
+
             String input = this.scanner.nextLine();
 
             if (!tamagotchi.getCharacter().isAlive()) {
@@ -25,16 +31,13 @@ public class UserInterface {
                     System.out.println("La criatura ha fallecido.");
                     System.out.println("X - Salir");
 
+                    input = scanner.nextLine();
+
                     if (input.equals("X")) {
                         break;
                     }
                 }
             }
-
-            System.out.println("Elige una opción del menú: ");
-            System.out.println("1 - Ver estado");
-            System.out.println("2 - Alimentar");
-            System.out.println("X - Salir");
 
 
             if (input.equals("X")) {
@@ -43,10 +46,12 @@ public class UserInterface {
 
             if (input.equals("1")) {
                 tamagotchi.estado();
+                System.out.println("\n");
             }
 
             if (input.equals("2")) {
                 tamagotchi.alimentar();
+                System.out.println("\n");
             }
         }
     }
