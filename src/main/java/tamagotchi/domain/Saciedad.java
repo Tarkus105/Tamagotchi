@@ -6,10 +6,4 @@ public class Saciedad extends Estado{
         super(initial);
     }
 
-    public void whenZero() {
-        super.aumentar(4);
-    }
-    public void whenMax() {
-        super.reducir(4);
-    }
 }

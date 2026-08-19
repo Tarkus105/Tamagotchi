@@ -22,6 +22,7 @@ public class UserInterface {
             System.out.println("Elige una opción del menú: ");
             System.out.println("1 - Ver estado");
             System.out.println("2 - Alimentar");
+            System.out.println("3 - Jugar");
             System.out.println("X - Salir");
 
             String input = this.scanner.nextLine();
@@ -46,12 +47,17 @@ public class UserInterface {
 
             if (input.equals("1")) {
                 tamagotchi.estado();
-                System.out.println("\n");
+                System.out.println();
             }
 
             if (input.equals("2")) {
                 tamagotchi.alimentar();
-                System.out.println("\n");
+                System.out.println();
+            }
+
+            if (input.equals("3")) {
+                tamagotchi.jugar();
+                System.out.println();
             }
         }
     }

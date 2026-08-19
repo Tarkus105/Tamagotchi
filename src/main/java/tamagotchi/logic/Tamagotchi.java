@@ -19,7 +19,12 @@ public class Tamagotchi {
 
     public void alimentar() {
         actualizarTiempo();
-        this.character.aumentarVida(20);
+        this.character.getSaciedad().aumentar(10);
+    }
+
+    public void jugar() {
+        actualizarTiempo();
+        this.character.getDiversion().aumentar(10);
     }
 
     public void estado() {
@@ -28,23 +33,29 @@ public class Tamagotchi {
 
         System.out.println("Edad: " + this.character.getEdad() + " min");
         System.out.println("Vida: " + this.character.getVida() + "/" + this.character.getMAX());
-        System.out.println("Saciedad: " + this.character.getSaciedad() + "/" + this.character.getMAX());
-        System.out.println("Diversión: " + this.character.getDiversion() + "/" + this.character.getMAX());
-        System.out.println("\n");
+        System.out.println("Saciedad: " + this.character.getSaciedad());
+        System.out.println("Diversion: " + this.character.getDiversion());
     }
 
     public void actualizarTiempo() {
 
         int edadAnterior = this.character.getEdad();
-
         this.character.setEdad(this.timer.getTimeElapsedInMinutes());
 
         if (this.character.getEdad() - edadAnterior > 0) {
-            this.character.reducirVida(this.character.getEdad() - edadAnterior);
-        }
+            for (int i = 0; i < this.character.getEdad() - edadAnterior; i++) {
+                this.character.getSaciedad().reducir(5);
+                this.character.getDiversion().reducir(5);
+            }
 
-//        this.character.reducirSaciedad(5);
-//        this.character.reducirDiversion(5);
+            if (this.character.isHungry()) {
+                this.character.reducirVida(this.character.getEdad() - edadAnterior);
+            }
+
+            if (this.character.isBored()) {
+                this.character.reducirVida(this.character.getEdad() - edadAnterior);
+            }
+        }
 
 
     }

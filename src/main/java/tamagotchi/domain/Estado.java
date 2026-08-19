@@ -4,33 +4,40 @@ public abstract class Estado {
     private final int MAX = 100;
     private int initialState;
     private int currentState;
-    private boolean isZero;
 
     public Estado(int initial) {
         this.initialState = initial;
         this.currentState = this.initialState;
-        this.isZero = false;
     }
 
-    void aumentar(int aumento) {
+    public void aumentar(int aumento) {
+        if (this.currentState < this.MAX) {
             this.currentState += aumento;
-   };
+        }
 
-    void reducir(int reduccion) {
-        this.currentState -= reduccion;
-    };
+    }
 
-    int getCurrentState() {
+    public void reducir(int reduccion) {
+        if (this.currentState > 0) {
+            this.currentState -= reduccion;
+        }
+
+    }
+
+    public int getCurrentState() {
         return this.currentState;
     }
 
-   void isZero() {
+    public boolean isZero() {
         if (this.currentState == 0) {
-            this.isZero = true;
+            return true;
         }
+
+        return false;
     }
 
-    abstract void whenZero();
-    abstract void whenMax();
+    public String toString() {
+        return this.currentState + "/" + this.MAX;
+    }
 }
 

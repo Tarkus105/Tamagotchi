@@ -5,14 +5,14 @@ public class Character {
     final int MAX = 100;
     private int vida;
     private int edad;
-    private int saciedad;
-    private int diversion;
+    private Saciedad saciedad;
+    private Diversion diversion;
     private boolean alive;
 
     public Character() {
         this.vida = 50;
-        this.saciedad = 50;
-        this.diversion = 50;
+        this.saciedad = new Saciedad(50);
+        this.diversion = new Diversion(80);
         this.edad = 0;
         this.alive = true;
     }
@@ -29,11 +29,13 @@ public class Character {
         return this.edad;
     }
 
-    public int getSaciedad() {
+    public Saciedad getSaciedad() {
+
         return this.saciedad;
     }
 
-    public int getDiversion() {
+    public Diversion getDiversion() {
+
         return this.diversion;
     }
 
@@ -49,27 +51,19 @@ public class Character {
         this.vida = this.vida + aumento;
     }
 
-    public void reducirSaciedad(int reduccion) {
-        this.saciedad = this.saciedad - reduccion;
-    }
-
-    public void aumentarSaciedad(int aumento) {
-        this.saciedad = this.saciedad + aumento;
-    }
-
-    public void reducirDiversion(int reduccion) {
-        this.diversion = this.diversion - reduccion;
-    }
-
-    public void aumentarDiversion(int aumento) {
-        this.diversion = this.diversion + aumento;
-    }
-
     public boolean isAlive() {
         if (this.vida == 0) {
             this.alive = false;
         }
 
         return this.alive;
+    }
+
+    public boolean isHungry() {
+        return this.saciedad.getCurrentState() == 0;
+    }
+
+    public boolean isBored() {
+        return this.diversion.getCurrentState() == 0;
     }
 }
