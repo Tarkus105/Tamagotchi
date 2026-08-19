@@ -6,12 +6,31 @@ public abstract class Estado {
     private int currentState;
     private boolean isZero;
 
-    public Estado(int intialState) {
-        this.initialState = initialState;
+    public Estado(int initial) {
+        this.initialState = initial;
+        this.currentState = this.initialState;
+        this.isZero = false;
     }
 
-    abstract void aumentar();
-    abstract void reducit();
+    void aumentar(int aumento) {
+            this.currentState += aumento;
+   };
+
+    void reducir(int reduccion) {
+        this.currentState -= reduccion;
+    };
+
+    int getCurrentState() {
+        return this.currentState;
+    }
+
+   void isZero() {
+        if (this.currentState == 0) {
+            this.isZero = true;
+        }
+    }
+
     abstract void whenZero();
+    abstract void whenMax();
 }
 
