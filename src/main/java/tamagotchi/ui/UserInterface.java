@@ -40,25 +40,26 @@ public class UserInterface {
                 }
             }
 
-
             if (input.equals("X")) {
                 break;
             }
 
-            if (input.equals("1")) {
-                tamagotchi.estado();
-                System.out.println();
+            switch (input) {
+                case "1":
+                    tamagotchi.estado();
+                    System.out.println();
+                    break;
+                case "2":
+                    tamagotchi.alimentar();
+                    System.out.println();
+                    break;
+                case "3":
+                    tamagotchi.jugar();
+                    System.out.println();
+                    break;
             }
 
-            if (input.equals("2")) {
-                tamagotchi.alimentar();
-                System.out.println();
-            }
 
-            if (input.equals("3")) {
-                tamagotchi.jugar();
-                System.out.println();
-            }
         }
     }
 
