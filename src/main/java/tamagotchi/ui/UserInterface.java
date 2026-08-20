@@ -3,6 +3,7 @@ package tamagotchi.ui;
 import java.util.Scanner;
 
 import javafx.application.Application;
+import javafx.application.Platform;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -58,7 +59,13 @@ public class UserInterface extends Application {
         });
 
         btnJugar.setOnAction(event -> {
-            lblTextoCentral.setText("Jugado");
+            tamagotchi.actualizarTiempo();
+            tamagotchi.jugar();
+            lblTextoCentral.setText("Jugado!");
+        });
+
+        btnSalir.setOnAction(event -> {
+            Platform.exit();
         });
 
 

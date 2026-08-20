@@ -18,12 +18,10 @@ public class Tamagotchi {
     }
 
     public void alimentar() {
-        actualizarTiempo();
         this.character.getSaciedad().aumentar(10);
     }
 
     public void jugar() {
-//        actualizarTiempo();
         this.character.getDiversion().aumentar(10);
     }
 
