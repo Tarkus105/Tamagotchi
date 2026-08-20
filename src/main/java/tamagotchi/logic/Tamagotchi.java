@@ -23,7 +23,7 @@ public class Tamagotchi {
     }
 
     public void jugar() {
-        actualizarTiempo();
+//        actualizarTiempo();
         this.character.getDiversion().aumentar(10);
     }
 

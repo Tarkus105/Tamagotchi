@@ -52,7 +52,9 @@ public class UserInterface extends Application {
         });
 
         btnAlimentar.setOnAction(event -> {
-            lblTextoCentral.setText("Alimentado");
+            tamagotchi.actualizarTiempo();
+            tamagotchi.alimentar();
+            lblTextoCentral.setText("Alimentado!");
         });
 
         btnJugar.setOnAction(event -> {
