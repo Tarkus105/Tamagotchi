@@ -1,5 +1,5 @@
 ## Aplicación
-[ ] Cambiar interfaz de texto por interfaz gráfica con JavaFX [Ver detalles](interfaz.md)
+[X] Cambiar interfaz de texto por interfaz gráfica con JavaFX [Ver detalles](interfaz.md)
 
 [ ] Añadir opción para dar nombre al personaje
 
