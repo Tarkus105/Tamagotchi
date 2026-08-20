@@ -2,65 +2,69 @@ package tamagotchi.ui;
 
 import java.util.Scanner;
 
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.Label;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.stage.Stage;
+
 import tamagotchi.logic.Tamagotchi;
 
-public class UserInterface {
+public class UserInterface extends Application {
 
-    private Scanner scanner;
+    final int WIDTH = 400;
+    final int HEIGHT = 300;
 
-    public UserInterface(Scanner scanner) {
-        this.scanner = scanner;
-    }
-
-    public void start() {
+    public void start(Stage ventana) {
 
         Tamagotchi tamagotchi = new Tamagotchi();
 
-
-        while (true) {
-
-            System.out.println("Elige una opción del menú: ");
-            System.out.println("1 - Ver estado");
-            System.out.println("2 - Alimentar");
-            System.out.println("3 - Jugar");
-            System.out.println("X - Salir");
-
-            String input = this.scanner.nextLine();
-
-            if (!tamagotchi.getCharacter().isAlive()) {
-                while (true) {
-                    System.out.println("La criatura ha fallecido.");
-                    System.out.println("X - Salir");
-
-                    input = scanner.nextLine();
-
-                    if (input.equals("X")) {
-                        break;
-                    }
-                }
-            }
-
-            if (input.equals("X")) {
-                break;
-            }
-
-            switch (input) {
-                case "1":
-                    tamagotchi.estado();
-                    System.out.println();
-                    break;
-                case "2":
-                    tamagotchi.alimentar();
-                    System.out.println();
-                    break;
-                case "3":
-                    tamagotchi.jugar();
-                    System.out.println();
-                    break;
-            }
+        Label lblEstado = new Label("Ver estado");
+        Label lblAlimentar = new Label("Alimentar");
+        Label lblJugar = new Label("Jugar");
 
 
-        }
+        Button btnEstado = new Button(lblEstado.getText());
+        Button btnAlimentar = new Button(lblAlimentar.getText());
+        Button btnJugar = new Button(lblJugar.getText());
+
+
+        HBox menuLayout = new HBox(10);
+        menuLayout.getChildren().addAll(btnEstado, btnAlimentar, btnJugar);
+        menuLayout.setFillHeight(true);
+
+        Label lblTextoCentral = new Label();
+
+        Label lblSalir = new Label("Salir");
+        Button btnSalir = new Button(lblSalir.getText());
+
+        BorderPane mainLayout = new BorderPane();
+        mainLayout.setPrefSize(400,300);
+        mainLayout.setTop(menuLayout);
+        mainLayout.setCenter(lblTextoCentral);
+        mainLayout.setBottom(btnSalir);
+
+        btnEstado.setOnAction(event -> {
+            lblTextoCentral.setText("Estado");
+        });
+
+        btnAlimentar.setOnAction(event -> {
+            lblTextoCentral.setText("Alimentado");
+        });
+
+        btnJugar.setOnAction(event -> {
+            lblTextoCentral.setText("Jugado");
+        });
+
+
+        Scene vista = new Scene(mainLayout);
+
+        ventana.setScene(vista);
+        ventana.setTitle("Tamagotchi!");
+        ventana.show();
+
     }
 
 }
