@@ -15,9 +15,6 @@ import tamagotchi.logic.Tamagotchi;
 
 public class UserInterface extends Application {
 
-    final int WIDTH = 400;
-    final int HEIGHT = 300;
-
     public void start(Stage ventana) {
 
         Tamagotchi tamagotchi = new Tamagotchi();
