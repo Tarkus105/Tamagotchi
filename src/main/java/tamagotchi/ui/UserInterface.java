@@ -47,7 +47,8 @@ public class UserInterface extends Application {
         mainLayout.setBottom(btnSalir);
 
         btnEstado.setOnAction(event -> {
-            lblTextoCentral.setText("Estado");
+            tamagotchi.actualizarTiempo();
+            lblTextoCentral.setText(tamagotchi.estado());
         });
 
         btnAlimentar.setOnAction(event -> {

@@ -27,14 +27,12 @@ public class Tamagotchi {
         this.character.getDiversion().aumentar(10);
     }
 
-    public void estado() {
+    public String estado() {
 
-        actualizarTiempo();
-
-        System.out.println("Edad: " + this.character.getEdad() + " min");
-        System.out.println("Vida: " + this.character.getVida() + "/" + this.character.getMAX());
-        System.out.println("Saciedad: " + this.character.getSaciedad());
-        System.out.println("Diversion: " + this.character.getDiversion());
+        return  "Edad: "      + this.character.getEdad()     + " min" + "\n" +
+                "Vida: "      + this.character.getVida()     + "/" + this.character.getMAX() + "\n" +
+                "Saciedad: "  + this.character.getSaciedad() + "\n" +
+                "Diversion: " + this.character.getDiversion();
     }
 
     public void actualizarTiempo() {
