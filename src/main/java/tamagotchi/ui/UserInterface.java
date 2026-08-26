@@ -22,15 +22,17 @@ public class UserInterface extends Application {
         Label lblEstado = new Label("Ver estado");
         Label lblAlimentar = new Label("Alimentar");
         Label lblJugar = new Label("Jugar");
+        Label lblLimpiar = new Label("Limpiar");
 
 
         Button btnEstado = new Button(lblEstado.getText());
         Button btnAlimentar = new Button(lblAlimentar.getText());
         Button btnJugar = new Button(lblJugar.getText());
+        Button btnLimpiar = new Button(lblLimpiar.getText());
 
 
         HBox menuLayout = new HBox(10);
-        menuLayout.getChildren().addAll(btnEstado, btnAlimentar, btnJugar);
+        menuLayout.getChildren().addAll(btnEstado, btnAlimentar, btnJugar, btnLimpiar);
         menuLayout.setFillHeight(true);
 
         Label lblTextoCentral = new Label();
@@ -59,6 +61,12 @@ public class UserInterface extends Application {
             tamagotchi.actualizarTiempo();
             tamagotchi.jugar();
             lblTextoCentral.setText("Jugado!");
+        });
+
+        btnLimpiar.setOnAction(event -> {
+            tamagotchi.actualizarTiempo();
+            tamagotchi.limpiar();
+            lblTextoCentral.setText("Limpiado!");
         });
 
         btnSalir.setOnAction(event -> {

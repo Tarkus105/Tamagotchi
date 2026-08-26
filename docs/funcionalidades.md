@@ -1,7 +1,7 @@
 Saciedad:
 [X] Conforme pasa el tiempo, el personaje va perdiendo Saciedad
 [X] Cuando la Saciedad llega a 0, el personaje empieza a perder Vida 
-[ ] Cuando la Saciedad llega a 100, cada vez que se le alimente pierde 5 de Vida
+[X] Cuando la Saciedad llega a 100, cada vez que se le alimente pierde 5 de Vida
 
 Diversión:
 [X] Conforme pasa el tiempo, el personaje va perdiendo Saciedad

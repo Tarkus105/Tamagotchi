@@ -4,6 +4,7 @@ import tamagotchi.domain.Character;
 import tamagotchi.domain.Timer;
 
 import java.util.Map;
+import java.util.Random;
 
 
 public class Tamagotchi {
@@ -31,6 +32,12 @@ public class Tamagotchi {
         this.character.getDiversion().aumentar(10);
     }
 
+    public void limpiar() {
+        if (this.character.isPooped()) {
+            this.character.setPooped(false,0);
+        }
+    }
+
     public String estado() {
 
         return "Edad: " + this.character.getEdad() + " min" + "\n" +
@@ -43,6 +50,8 @@ public class Tamagotchi {
 
         this.character.actualizarEstados();
 
+        Random rnd = new Random();
+
         int edadAnterior = this.character.getEdad();
         this.character.setEdad(this.timer.getTimeElapsedInMinutes());
 
@@ -51,6 +60,18 @@ public class Tamagotchi {
             for (int i = 0; i < this.character.getEdad() - edadAnterior; i++) {
                 this.character.getSaciedad().reducir(5);
                 this.character.getDiversion().reducir(5);
+
+                int number = rnd.nextInt(2);
+                System.out.println(number);
+                System.out.println("Antes caca: " + this.character.isPooped());
+                if (number == 1) {
+                    if (!this.character.isPooped()) {
+                        this.character.setPooped(true, this.character.getEdad());
+
+                    }
+                }
+                System.out.println("Después caca: " + this.character.isPooped());
+
             }
 
             for (Map.Entry<String, Boolean> par : this.character.getEstados().entrySet()) {
@@ -67,6 +88,10 @@ public class Tamagotchi {
 
                         case "Full": {
                             // Se encarga la acción de Alimentar
+                            break;
+                        }
+
+                        case "Dirty": {
                             break;
                         }
 
