@@ -62,15 +62,12 @@ public class Tamagotchi {
                 this.character.getDiversion().reducir(5);
 
                 int number = rnd.nextInt(2);
-                System.out.println(number);
-                System.out.println("Antes caca: " + this.character.isPooped());
                 if (number == 1) {
                     if (!this.character.isPooped()) {
                         this.character.setPooped(true, this.character.getEdad());
 
                     }
                 }
-                System.out.println("Después caca: " + this.character.isPooped());
 
             }
 
