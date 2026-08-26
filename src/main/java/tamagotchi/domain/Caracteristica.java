@@ -1,25 +1,29 @@
 package tamagotchi.domain;
 
-public abstract class Estado {
+public abstract class Caracteristica {
     private final int MAX = 100;
     private int initialState;
     private int currentState;
 
-    public Estado(int initial) {
+    public Caracteristica(int initial) {
         this.initialState = initial;
         this.currentState = this.initialState;
     }
 
     public void aumentar(int aumento) {
-        if (this.currentState < this.MAX) {
+        if (this.currentState + aumento <= this.MAX) {
             this.currentState += aumento;
+        } else {
+            this.currentState = 100;
         }
 
     }
 
     public void reducir(int reduccion) {
-        if (this.currentState > 0) {
+        if (this.currentState - reduccion >= 0) {
             this.currentState -= reduccion;
+        } else {
+            this.currentState = 0;
         }
 
     }

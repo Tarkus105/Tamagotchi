@@ -27,18 +27,18 @@ public class UserInterfaceText {
 
             String input = this.scanner.nextLine();
 
-            if (!tamagotchi.getCharacter().isAlive()) {
-                while (true) {
-                    System.out.println("La criatura ha fallecido.");
-                    System.out.println("X - Salir");
-
-                    input = scanner.nextLine();
-
-                    if (input.equals("X")) {
-                        break;
-                    }
-                }
-            }
+//            if (!tamagotchi.getCharacter().isAlive()) {
+//                while (true) {
+//                    System.out.println("La criatura ha fallecido.");
+//                    System.out.println("X - Salir");
+//
+//                    input = scanner.nextLine();
+//
+//                    if (input.equals("X")) {
+//                        break;
+//                    }
+//                }
+//            }
 
             if (input.equals("X")) {
                 break;

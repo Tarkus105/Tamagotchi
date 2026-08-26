@@ -1,5 +1,7 @@
 package tamagotchi.domain;
 
+import java.util.HashMap;
+
 public class Character {
 
     final int MAX = 100;
@@ -7,14 +9,23 @@ public class Character {
     private int edad;
     private Saciedad saciedad;
     private Diversion diversion;
-    private boolean alive;
+    private HashMap<String, Boolean> estados;
+//    private boolean alive;
 
     public Character() {
         this.vida = 50;
-        this.saciedad = new Saciedad(50);
-        this.diversion = new Diversion(80);
+        this.saciedad = new Saciedad(1);
+        this.diversion = new Diversion(1);
         this.edad = 0;
-        this.alive = true;
+//        this.alive = true;
+        this.estados = new HashMap<>();
+
+        this.estados.put("Bored", false);
+        this.estados.put("Hungry", false);
+        this.estados.put("Full", false);
+        this.estados.put("Sick", false);
+        this.estados.put("Dead", false);
+
     }
 
     public int getMAX() {
@@ -39,6 +50,10 @@ public class Character {
         return this.diversion;
     }
 
+    public HashMap<String, Boolean> getEstados() {
+        return estados;
+    }
+
     public void setEdad(int minutos) {
         this.edad = minutos;
     }
@@ -51,19 +66,45 @@ public class Character {
         this.vida = this.vida + aumento;
     }
 
-    public boolean isAlive() {
-        if (this.vida == 0) {
-            this.alive = false;
-        }
+    public void actualizarEstados() {
 
-        return this.alive;
+        if (this.saciedad.getCurrentState() == 0) {
+            this.estados.put("Hungry", true);
+        } else if (this.saciedad.getCurrentState() > 0) {
+            this.estados.put("Hungry", false);
+        };
+
+        if (this.saciedad.getCurrentState() == 100) {
+            this.estados.put("Full", true);
+        } else if (this.saciedad.getCurrentState() < 100) {
+            this.estados.put("Full", false);
+        };
+
+        if (this.diversion.getCurrentState() == 0) {
+            this.estados.put("Bored", true);
+        } else if (this.diversion.getCurrentState() > 0) {
+            this.estados.put("Bored", false);
+        };
+
+        if (this.getVida() == 0) {
+            this.estados.put("Dead", true);
+        };
+
     }
 
-    public boolean isHungry() {
-        return this.saciedad.getCurrentState() == 0;
-    }
-
-    public boolean isBored() {
-        return this.diversion.getCurrentState() == 0;
-    }
+//    public boolean isAlive() {
+//        if (this.vida == 0) {
+//            this.alive = false;
+//        }
+//
+//        return this.alive;
+//    }
+//
+//    public boolean isHungry() {
+//        return this.saciedad.getCurrentState() == 0;
+//    }
+//
+//    public boolean isBored() {
+//        return this.diversion.getCurrentState() == 0;
+//    }
 }
