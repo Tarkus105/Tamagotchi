@@ -20,6 +20,10 @@ public class Tamagotchi {
     }
 
     public void alimentar() {
+        if (this.character.getEstados().get("Full")) {
+            this.character.reducirVida(5);
+        }
+
         this.character.getSaciedad().aumentar(10);
     }
 
@@ -37,12 +41,7 @@ public class Tamagotchi {
 
     public void actualizarTiempo() {
 
-
         this.character.actualizarEstados();
-
-        for (Map.Entry<String, Boolean> par : this.character.getEstados().entrySet()) {
-            System.out.println(par);
-        }
 
         int edadAnterior = this.character.getEdad();
         this.character.setEdad(this.timer.getTimeElapsedInMinutes());
@@ -86,13 +85,6 @@ public class Tamagotchi {
 
             }
 
-//            if (this.character.isHungry()) {
-//                this.character.reducirVida(this.character.getEdad() - edadAnterior);
-//            }
-//
-//            if (this.character.isBored()) {
-//                this.character.reducirVida(this.character.getEdad() - edadAnterior);
-//            }
         }
 
 

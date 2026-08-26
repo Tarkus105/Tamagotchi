@@ -91,20 +91,4 @@ public class Character {
         };
 
     }
-
-//    public boolean isAlive() {
-//        if (this.vida == 0) {
-//            this.alive = false;
-//        }
-//
-//        return this.alive;
-//    }
-//
-//    public boolean isHungry() {
-//        return this.saciedad.getCurrentState() == 0;
-//    }
-//
-//    public boolean isBored() {
-//        return this.diversion.getCurrentState() == 0;
-//    }
 }
