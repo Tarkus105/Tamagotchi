@@ -1,5 +1,6 @@
 package tamagotchi.ui;
 
+import javafx.geometry.Insets;
 import java.util.Scanner;
 
 import javafx.application.Application;
@@ -44,6 +45,7 @@ public class UserInterface extends Application {
 
         BorderPane mainLayout = new BorderPane();
         mainLayout.setPrefSize(400, 300);
+        mainLayout.setPadding(new Insets(10));
         mainLayout.setTop(menuLayout);
         mainLayout.setCenter(lblTextoCentral);
         mainLayout.setBottom(btnSalir);
