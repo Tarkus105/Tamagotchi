@@ -16,7 +16,7 @@ public class Character {
 
     public Character() {
         this.vida = 50;
-        this.saciedad = new Saciedad(1);
+        this.saciedad = new Saciedad(0);
         this.diversion = new Diversion(1);
         this.edad = 0;
         this.estados = new HashMap<>();
@@ -24,7 +24,7 @@ public class Character {
         this.estados.put("Bored", false);
         this.estados.put("Hungry", false);
         this.estados.put("Full", false);
-        this.estados.put("Sick", false);
+        this.estados.put("Sick", true);
         this.estados.put("Dead", false);
 
     }
@@ -73,7 +73,8 @@ public class Character {
     }
 
     public void reducirVida(int reduccion) {
-            this.vida = this.vida - reduccion;
+
+        this.vida = this.vida - reduccion;
     }
 
     public void aumentarVida(int aumento) {

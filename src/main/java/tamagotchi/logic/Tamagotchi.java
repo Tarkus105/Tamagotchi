@@ -3,8 +3,10 @@ package tamagotchi.logic;
 import tamagotchi.domain.Character;
 import tamagotchi.domain.Timer;
 
+import java.util.List;
 import java.util.Map;
 import java.util.Random;
+import java.util.stream.Collectors;
 
 
 public class Tamagotchi {
@@ -57,31 +59,24 @@ public class Tamagotchi {
 
         String face = "(｡◕‿‿◕｡)";
 
-        for (Map.Entry<String, Boolean> par : this.character.getEstados().entrySet()) {
+        List<String> estados = this.character.getEstados().entrySet()
+                                                            .stream()
+                                                            .filter(a -> a.getValue() == true)
+                                                            .map(s -> s.getKey())
+                                                            .collect(Collectors.toList());
 
-            if (par.getValue() == true) {
-                switch (par.getKey()) {
-                    case "Bored":
-                    case "Hungry":
-                        face = "ᕙ(⇀‸↼‶)ᕗ";
-                        break;
-
-                    case "Sick": {
-                        face = "(ಥ﹏ಥ)";
-                        break;
-                    }
-
-                    case "Dead": {
-                        // Cambiar vista de pantalla
-                        face = ">_>";
-                        break;
-                    }
-                }
-            }
-            ;
-
-
+        if (estados.contains("Dead")) {
+            face = ">_>";
         }
+
+        if (estados.contains("Sick")) {
+            face = "(ಥ﹏ಥ)";
+        }
+
+        if ((estados.contains("Hungry") || estados.contains("Bored")) && !estados.contains("Sick")) {
+            face = "ᕙ(⇀‸↼‶)ᕗ";
+        }
+
         return face;
     }
 
