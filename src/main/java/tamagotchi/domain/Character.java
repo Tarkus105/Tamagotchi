@@ -16,8 +16,8 @@ public class Character {
 
     public Character() {
         this.vida = 50;
-        this.saciedad = new Saciedad(0);
-        this.diversion = new Diversion(1);
+        this.saciedad = new Saciedad(1);
+        this.diversion = new Diversion(0);
         this.edad = 0;
         this.estados = new HashMap<>();
 

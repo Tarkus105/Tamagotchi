@@ -74,7 +74,7 @@ public class Tamagotchi {
         }
 
         if ((estados.contains("Hungry") || estados.contains("Bored")) && !estados.contains("Sick")) {
-            face = "ᕙ(⇀‸↼‶)ᕗ";
+            face = "<(⇀‸↼‶)>";
         }
 
         return face;

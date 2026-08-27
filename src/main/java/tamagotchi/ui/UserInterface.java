@@ -51,6 +51,7 @@ public class UserInterface extends Application {
         menuLayout.getChildren().addAll(btnEstado, btnAlimentar, btnJugar, btnLimpiar, btnCurar);
 
         Label lblTextoCentral = new Label();
+        lblTextoCentral.setFont(Font.font("Microsoft JhengHei UI", 10));
 
         Label lblSalir = new Label("Salir");
         Button btnSalir = new Button(lblSalir.getText());
