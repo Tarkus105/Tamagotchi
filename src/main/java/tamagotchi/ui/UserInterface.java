@@ -10,6 +10,7 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
+import javafx.scene.layout.Priority;
 import javafx.stage.Stage;
 
 import tamagotchi.logic.Tamagotchi;
@@ -35,8 +36,18 @@ public class UserInterface extends Application {
 
 
         HBox menuLayout = new HBox(10);
-        menuLayout.getChildren().addAll(btnEstado, btnAlimentar, btnJugar, btnLimpiar, btnCurar);
+        menuLayout.setHgrow(btnEstado, Priority.ALWAYS);
+        menuLayout.setHgrow(btnAlimentar, Priority.ALWAYS);
+        menuLayout.setHgrow(btnJugar, Priority.ALWAYS);
+        menuLayout.setHgrow(btnLimpiar, Priority.ALWAYS);
+        menuLayout.setHgrow(btnCurar, Priority.ALWAYS);
+        btnEstado.setMaxWidth(Double.MAX_VALUE);
+        btnAlimentar.setMaxWidth(Double.MAX_VALUE);
+        btnJugar.setMaxWidth(Double.MAX_VALUE);
+        btnLimpiar.setMaxWidth(Double.MAX_VALUE);
+        btnCurar.setMaxWidth(Double.MAX_VALUE);
         menuLayout.setFillHeight(true);
+        menuLayout.getChildren().addAll(btnEstado, btnAlimentar, btnJugar, btnLimpiar, btnCurar);
 
         Label lblTextoCentral = new Label();
 
