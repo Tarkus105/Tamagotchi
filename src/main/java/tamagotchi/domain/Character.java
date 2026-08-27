@@ -16,15 +16,15 @@ public class Character {
 
     public Character() {
         this.vida = 50;
-        this.saciedad = new Saciedad(1);
-        this.diversion = new Diversion(0);
+        this.saciedad = new Saciedad(50);
+        this.diversion = new Diversion(50);
         this.edad = 0;
         this.estados = new HashMap<>();
 
         this.estados.put("Bored", false);
         this.estados.put("Hungry", false);
         this.estados.put("Full", false);
-        this.estados.put("Sick", true);
+        this.estados.put("Sick", false);
         this.estados.put("Dead", false);
 
     }
