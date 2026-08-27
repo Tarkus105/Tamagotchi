@@ -148,7 +148,6 @@ public class Tamagotchi {
 //        System.out.println("Caca:" + this.character.isPooped() + " " + this.character.getPoopTime() + " mins");
 //        for (Map.Entry<String, Boolean> par : this.character.getEstados().entrySet()) {
 //            System.out.println(par);
-
-        }
+//        }
     }
 }
