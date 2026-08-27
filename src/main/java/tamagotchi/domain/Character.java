@@ -51,6 +51,9 @@ public class Character {
         return this.diversion;
     }
 
+    public int getPoopTime() {
+        return this.whenPooped;
+    }
 
     public HashMap<String, Boolean> getEstados() {
         return estados;
@@ -70,7 +73,9 @@ public class Character {
     }
 
     public void reducirVida(int reduccion) {
-        this.vida = this.vida - reduccion;
+        if (this.vida > 0) {
+            this.vida = this.vida - reduccion;
+        }
     }
 
     public void aumentarVida(int aumento) {

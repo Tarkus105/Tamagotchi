@@ -23,16 +23,18 @@ public class UserInterface extends Application {
         Label lblAlimentar = new Label("Alimentar");
         Label lblJugar = new Label("Jugar");
         Label lblLimpiar = new Label("Limpiar");
+        Label lblCurar = new Label("Curar");
 
 
         Button btnEstado = new Button(lblEstado.getText());
         Button btnAlimentar = new Button(lblAlimentar.getText());
         Button btnJugar = new Button(lblJugar.getText());
         Button btnLimpiar = new Button(lblLimpiar.getText());
+        Button btnCurar = new Button(lblCurar.getText());
 
 
         HBox menuLayout = new HBox(10);
-        menuLayout.getChildren().addAll(btnEstado, btnAlimentar, btnJugar, btnLimpiar);
+        menuLayout.getChildren().addAll(btnEstado, btnAlimentar, btnJugar, btnLimpiar, btnCurar);
         menuLayout.setFillHeight(true);
 
         Label lblTextoCentral = new Label();
@@ -41,7 +43,7 @@ public class UserInterface extends Application {
         Button btnSalir = new Button(lblSalir.getText());
 
         BorderPane mainLayout = new BorderPane();
-        mainLayout.setPrefSize(400,300);
+        mainLayout.setPrefSize(400, 300);
         mainLayout.setTop(menuLayout);
         mainLayout.setCenter(lblTextoCentral);
         mainLayout.setBottom(btnSalir);
@@ -67,6 +69,12 @@ public class UserInterface extends Application {
             tamagotchi.actualizarTiempo();
             tamagotchi.limpiar();
             lblTextoCentral.setText("Limpiado!");
+        });
+
+        btnCurar.setOnAction(event -> {
+            tamagotchi.actualizarTiempo();
+            tamagotchi.curar();
+            lblTextoCentral.setText("Curado!");
         });
 
         btnSalir.setOnAction(event -> {

@@ -34,7 +34,13 @@ public class Tamagotchi {
 
     public void limpiar() {
         if (this.character.isPooped()) {
-            this.character.setPooped(false,0);
+            this.character.setPooped(false, 0);
+        }
+    }
+
+    public void curar() {
+        if (this.character.getEstados().get("Sick")) {
+            this.character.getEstados().put("Sick", false);
         }
     }
 
@@ -109,6 +115,12 @@ public class Tamagotchi {
 
         }
 
+        //TEST
+        System.out.println(this.character.getEdad());
+        System.out.println("Caca:" + this.character.isPooped() + " " + this.character.getPoopTime() + " mins");
+        for (Map.Entry<String, Boolean> par : this.character.getEstados().entrySet()) {
+            System.out.println(par);
 
+        }
     }
 }
