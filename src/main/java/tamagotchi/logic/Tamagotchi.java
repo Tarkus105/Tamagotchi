@@ -49,7 +49,40 @@ public class Tamagotchi {
         return "Edad: " + this.character.getEdad() + " min" + "\n" +
                 "Vida: " + this.character.getVida() + "/" + this.character.getMAX() + "\n" +
                 "Saciedad: " + this.character.getSaciedad() + "\n" +
-                "Diversion: " + this.character.getDiversion();
+                "Diversion: " + this.character.getDiversion() + "\n" + "\n" +
+                showFace();
+    }
+
+    private String showFace() {
+
+        String face = "(｡◕‿‿◕｡)";
+
+        for (Map.Entry<String, Boolean> par : this.character.getEstados().entrySet()) {
+
+            if (par.getValue() == true) {
+                switch (par.getKey()) {
+                    case "Bored":
+                    case "Hungry":
+                        face = "ᕙ(⇀‸↼‶)ᕗ";
+                        break;
+
+                    case "Sick": {
+                        face = "(ಥ﹏ಥ)";
+                        break;
+                    }
+
+                    case "Dead": {
+                        // Cambiar vista de pantalla
+                        face = ">_>";
+                        break;
+                    }
+                }
+            }
+            ;
+
+
+        }
+        return face;
     }
 
     public void actualizarTiempo() {

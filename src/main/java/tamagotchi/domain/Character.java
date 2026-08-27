@@ -73,9 +73,7 @@ public class Character {
     }
 
     public void reducirVida(int reduccion) {
-        if (this.vida > 0) {
             this.vida = this.vida - reduccion;
-        }
     }
 
     public void aumentarVida(int aumento) {
