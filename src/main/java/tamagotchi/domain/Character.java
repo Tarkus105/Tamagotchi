@@ -1,5 +1,7 @@
 package tamagotchi.domain;
 
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -8,6 +10,8 @@ public class Character {
     final int MAX = 100;
     private int vida;
     private int edad;
+    private LocalDateTime birthday;
+    private LocalDateTime deathday;
     private Saciedad saciedad;
     private Diversion diversion;
     private boolean pooped;
@@ -19,6 +23,7 @@ public class Character {
         this.saciedad = new Saciedad(50);
         this.diversion = new Diversion(50);
         this.edad = 0;
+        this.birthday = LocalDateTime.now();
         this.estados = new HashMap<>();
 
         this.estados.put("Bored", false);
@@ -55,6 +60,19 @@ public class Character {
         return this.whenPooped;
     }
 
+    private String formatearFecha(LocalDateTime fecha) {
+        DateTimeFormatter formato = DateTimeFormatter.ofPattern("yyyy-MM-dd HH:mm:ss");
+        return fecha.format(formato);
+    }
+
+    public String getBirthday() {
+        return formatearFecha(this.birthday);
+    }
+
+    public String getDeathday() {
+        return formatearFecha(this.deathday);
+    }
+
     public HashMap<String, Boolean> getEstados() {
         return estados;
     }
@@ -73,8 +91,10 @@ public class Character {
     }
 
     public void reducirVida(int reduccion) {
+        if (this.vida > 0) {
+            this.vida = this.vida - reduccion;
+        }
 
-        this.vida = this.vida - reduccion;
     }
 
     public void aumentarVida(int aumento) {
@@ -112,6 +132,7 @@ public class Character {
 
         if (this.getVida() == 0) {
             this.estados.put("Dead", true);
+            this.deathday = LocalDateTime.now();
         }
         ;
 

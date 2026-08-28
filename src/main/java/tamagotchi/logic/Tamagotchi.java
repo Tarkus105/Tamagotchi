@@ -48,16 +48,16 @@ public class Tamagotchi {
 
     public String estado() {
 
+        String face = updateFace();
+
         return "Edad: " + this.character.getEdad() + " min" + "\n" +
                 "Vida: " + this.character.getVida() + "/" + this.character.getMAX() + "\n" +
                 "Saciedad: " + this.character.getSaciedad() + "\n" +
                 "Diversion: " + this.character.getDiversion() + "\n" + "\n" +
-                showFace();
+                face;
     }
 
-    private String showFace() {
-
-        String face = "(｡◕‿‿◕｡)";
+    private String updateFace() {
 
         List<String> estados = this.character.getEstados().entrySet()
                                                             .stream()
@@ -65,19 +65,15 @@ public class Tamagotchi {
                                                             .map(s -> s.getKey())
                                                             .collect(Collectors.toList());
 
-        if (estados.contains("Dead")) {
-            face = ">_>";
-        }
-
         if (estados.contains("Sick")) {
-            face = "(ಥ﹏ಥ)";
+            return "(ಥ﹏ಥ)";
         }
 
         if ((estados.contains("Hungry") || estados.contains("Bored")) && !estados.contains("Sick")) {
-            face = "<(⇀‸↼‶)>";
+            return "<(⇀‸↼‶)>";
         }
 
-        return face;
+        return "(｡◕‿‿◕｡)";
     }
 
     public void actualizarTiempo() {
