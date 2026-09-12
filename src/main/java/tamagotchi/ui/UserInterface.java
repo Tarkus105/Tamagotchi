@@ -118,7 +118,7 @@ public class UserInterface extends Application {
         Scene vista = new Scene(mainLayout);
 
         ventana.setScene(vista);
-        ventana.setTitle("Tamagotchi!");
+        ventana.setTitle("Tamagotchi! v0.1.0");
         ventana.show();
 
     }
